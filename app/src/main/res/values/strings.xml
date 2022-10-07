@@ -14,5 +14,17 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    <string name="msg_nombre">Nombre del lugar</string>
+    <string name="msg_correo">correo (lugar@xxx.xxx)</string>
+    <string name="msg_telefono">telefono telefono 83939341</string>
+    <string name="msg_web">sitio web</string>
+    <string name="bt_add_lugar">agregar</string>
+    <string name="msg_lugar_added">lugar  agregado</string>
+    <string name="msg_data">faltan datos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 
 </resources>
