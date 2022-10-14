@@ -33,7 +33,7 @@ class AddLugarFragment : Fragment() {
 
         _binding = FragmentAddLugarBinding.inflate(inflater, container, false)
 
-        binding.btAdd.setOnClickListener { addLugar() }
+        binding.btUpdate.setOnClickListener { addLugar() }
 
         return binding.root
     }

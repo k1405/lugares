@@ -15,7 +15,9 @@ class LugarRepository(private val lugarDao: LugarDao) {
 
     }
     suspend fun  deleteLugar(lugar:Lugar){
-        if (lugar.id!=null){ //si el id tiene un valor ... lo intento eliminar
+        if (lugar.id!=0){
+
+            lugarDao.deleteLugar(lugar)
 
         }
     }
