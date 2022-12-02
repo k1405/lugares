@@ -9,12 +9,13 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/correo_usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tv_correo"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/et_email"
@@ -29,7 +30,8 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_clave"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/et_clave"
@@ -55,6 +57,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_loging" />
+            app:srcCompat="@drawable/ic_login" />
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/bt_google"
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused" />
 </LinearLayout>

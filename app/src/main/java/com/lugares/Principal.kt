@@ -3,6 +3,9 @@ package com.lugares
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -41,6 +44,26 @@ class Principal : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        actualiza(navView)
+    }
+
+    private fun actualiza(navView: NavigationView) {
+        val vista: View = navView.getHeaderView(0)
+        val nombre: TextView = vista.findViewById(R.id.nombre_usuario)
+        val correo: TextView = vista.findViewById(R.id.correo_usuario)
+        val foto: ImageView = vista.findViewById(R.id.foto_usuario)
+        val usuario =Firebase.auth.currentUser
+        nombre.text=usuario?.displayName
+        correo.text=usuario?.email
+        var fotoUrl = usuario?.photoUrl.toString()
+        if (fotoUrl.isNotEmpty()){
+            Glide.with(this)
+                .load(fotoUrl)
+                .circleCrop()
+                .into(foto)
+
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -53,11 +76,10 @@ class Principal : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_logoff -> {
                 Firebase.auth.signOut()  //Desconectarse...
-                finish()
+                finish()  //Regresar a la pantalla anterior...
                 true
             } else -> super.onOptionsItemSelected(item)
         }
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -8,19 +8,16 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lugares.R
 import com.lugares.adapter.LugarAdapter
-
 import com.lugares.databinding.FragmentLugarBinding
 import com.lugares.viewmodel.LugarViewModel
 
 class LugarFragment : Fragment() {
 
     private var _binding: FragmentLugarBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -33,19 +30,20 @@ class LugarFragment : Fragment() {
 
         _binding = FragmentLugarBinding.inflate(inflater, container, false)
 
-binding.addLugarFabButtin.setOnClickListener{
+        binding.addLugarFabButton.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_lugar_to_addLugarFragment)
+        }
 
-    findNavController().navigate(R.id.action_nav_lugar_to_addLugarFragment)
-}
-
+        //Se genera el recicler view para ver la información...
         val lugarAdapter=LugarAdapter()
         val reciclador = binding.reciclador
-        reciclador.adapter= lugarAdapter
+        reciclador.adapter = lugarAdapter
         reciclador.layoutManager=LinearLayoutManager(requireContext())
 
-        lugarViewModel.getLugares.observe(viewLifecycleOwner){
-            it -> lugarAdapter.setListaLugares(it)
+        lugarViewModel.getLugares.observe(viewLifecycleOwner) {
+                lugares -> lugarAdapter.setListaLugares(lugares)
         }
+
         return binding.root
     }
 
